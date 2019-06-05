@@ -9,21 +9,26 @@
 /* Begin PBXBuildFile section */
 		DB2E87D522A7C46A00F4E710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E87D422A7C46A00F4E710 /* AppDelegate.swift */; };
 		DB2E87D722A7C46A00F4E710 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E87D622A7C46A00F4E710 /* SceneDelegate.swift */; };
-		DB2E87D922A7C46A00F4E710 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E87D822A7C46A00F4E710 /* ViewController.swift */; };
 		DB2E87DC22A7C46A00F4E710 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2E87DA22A7C46A00F4E710 /* Main.storyboard */; };
 		DB2E87DE22A7C46B00F4E710 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB2E87DD22A7C46B00F4E710 /* Assets.xcassets */; };
 		DB2E87E122A7C46B00F4E710 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2E87DF22A7C46B00F4E710 /* LaunchScreen.storyboard */; };
+		DB2E87EB22A7CAAF00F4E710 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2E87EA22A7CAAF00F4E710 /* AuthenticationServices.framework */; };
+		DB2E87ED22A7CDF200F4E710 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E87EC22A7CDF200F4E710 /* LogInViewController.swift */; };
+		DB2E87EF22A7CE0C00F4E710 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E87EE22A7CE0C00F4E710 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DB2E87D122A7C46A00F4E710 /* SignInWithAppleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignInWithAppleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2E87D422A7C46A00F4E710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB2E87D622A7C46A00F4E710 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB2E87D822A7C46A00F4E710 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB2E87DB22A7C46A00F4E710 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB2E87DD22A7C46B00F4E710 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB2E87E022A7C46B00F4E710 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB2E87E222A7C46B00F4E710 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB2E87E822A7CA0A00F4E710 /* SignInWithAppleDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SignInWithAppleDemo.entitlements; sourceTree = "<group>"; };
+		DB2E87EA22A7CAAF00F4E710 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		DB2E87EC22A7CDF200F4E710 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		DB2E87EE22A7CE0C00F4E710 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB2E87EB22A7CAAF00F4E710 /* AuthenticationServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +48,7 @@
 			children = (
 				DB2E87D322A7C46A00F4E710 /* SignInWithAppleDemo */,
 				DB2E87D222A7C46A00F4E710 /* Products */,
+				DB2E87E922A7CAAF00F4E710 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +63,25 @@
 		DB2E87D322A7C46A00F4E710 /* SignInWithAppleDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DB2E87E822A7CA0A00F4E710 /* SignInWithAppleDemo.entitlements */,
 				DB2E87D422A7C46A00F4E710 /* AppDelegate.swift */,
 				DB2E87D622A7C46A00F4E710 /* SceneDelegate.swift */,
-				DB2E87D822A7C46A00F4E710 /* ViewController.swift */,
+				DB2E87EC22A7CDF200F4E710 /* LogInViewController.swift */,
+				DB2E87EE22A7CE0C00F4E710 /* HomeViewController.swift */,
 				DB2E87DA22A7C46A00F4E710 /* Main.storyboard */,
 				DB2E87DD22A7C46B00F4E710 /* Assets.xcassets */,
 				DB2E87DF22A7C46B00F4E710 /* LaunchScreen.storyboard */,
 				DB2E87E222A7C46B00F4E710 /* Info.plist */,
 			);
 			path = SignInWithAppleDemo;
+			sourceTree = "<group>";
+		};
+		DB2E87E922A7CAAF00F4E710 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB2E87EA22A7CAAF00F4E710 /* AuthenticationServices.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB2E87D922A7C46A00F4E710 /* ViewController.swift in Sources */,
 				DB2E87D522A7C46A00F4E710 /* AppDelegate.swift in Sources */,
 				DB2E87D722A7C46A00F4E710 /* SceneDelegate.swift in Sources */,
+				DB2E87ED22A7CDF200F4E710 /* LogInViewController.swift in Sources */,
+				DB2E87EF22A7CE0C00F4E710 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +302,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SignInWithAppleDemo/SignInWithAppleDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PQ7E4L589;
 				INFOPLIST_FILE = SignInWithAppleDemo/Info.plist;
@@ -302,6 +321,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SignInWithAppleDemo/SignInWithAppleDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PQ7E4L589;
 				INFOPLIST_FILE = SignInWithAppleDemo/Info.plist;
