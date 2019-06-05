@@ -10,21 +10,37 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak private var userIdentifierLabel: UILabel!
+    @IBOutlet weak private var firstNameLabel: UILabel!
+    @IBOutlet weak private var lastNameLabel: UILabel!
+    @IBOutlet weak private var emailLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        userIdentifierLabel.text = KeychainItem.currentUserIdentifier
+        firstNameLabel.text = KeychainItem.currentUserFirstName
+        lastNameLabel.text = KeychainItem.currentUserLastName
+        emailLabel.text = KeychainItem.currentUserEmail
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    static func Push() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
+            else { return }
+        guard let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
+            else { return }
+        navigationController.pushViewController(viewController, animated: true)
     }
-    */
-
+    
+    @IBAction func logoutButtonPressAction(_ sender: UIButton) {
+        KeychainItem.currentUserIdentifier = nil
+        KeychainItem.currentUserFirstName = nil
+        KeychainItem.currentUserLastName = nil
+        KeychainItem.currentUserEmail = nil
+        
+        guard let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
+            else { return }
+        navigationController.popViewController(animated: true)
+    }
 }
