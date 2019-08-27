@@ -27,6 +27,8 @@ class LogInViewController: UIViewController {
     private func setupLoginProviderView() {
         let authorizationButton = ASAuthorizationAppleIDButton()
         authorizationButton.addTarget(self, action: #selector(handleLogInWithAppleIDButtonPress), for: .touchUpInside)
+        let heightConstraint = authorizationButton.heightAnchor.constraint(equalToConstant: 50)
+        authorizationButton.addConstraint(heightConstraint)
         loginProviderStackView.addArrangedSubview(authorizationButton)
     }
     
@@ -67,6 +69,16 @@ extension LogInViewController : ASAuthorizationControllerDelegate {
             KeychainItem.currentUserFirstName = appleIDCredential.fullName?.givenName
             KeychainItem.currentUserLastName = appleIDCredential.fullName?.familyName
             KeychainItem.currentUserEmail = appleIDCredential.email
+            
+            print("User Id - \(appleIDCredential.user)")
+            print("User Name - \(appleIDCredential.fullName?.description ?? "N/A")")
+            print("User Email - \(appleIDCredential.email ?? "N/A")")
+            print("Real User Status - \(appleIDCredential.realUserStatus.rawValue)")
+            
+            if let identityTokenData = appleIDCredential.identityToken,
+                let identityTokenString = String(data: identityTokenData, encoding: .utf8) {
+                print("Identity Token \(identityTokenString)")
+            }
             
             //Show Home View Controller
             HomeViewController.Push()

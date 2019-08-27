@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 class HomeViewController: UIViewController {
 
@@ -15,6 +16,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak private var lastNameLabel: UILabel!
     @IBOutlet weak private var emailLabel: UILabel!
     
+    private var credentialRevokedNotification: NSObjectProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +25,8 @@ class HomeViewController: UIViewController {
         firstNameLabel.text = KeychainItem.currentUserFirstName
         lastNameLabel.text = KeychainItem.currentUserLastName
         emailLabel.text = KeychainItem.currentUserEmail
+        
+        setupCredentialRevokedNotificationNotification()
     }
     
     static func Push() {
@@ -31,6 +36,14 @@ class HomeViewController: UIViewController {
         guard let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
             else { return }
         navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func setupCredentialRevokedNotificationNotification() {
+        let center = NotificationCenter.default
+        let name = ASAuthorizationAppleIDProvider.credentialRevokedNotification
+        credentialRevokedNotification = center.addObserver(forName: name, object: nil, queue: nil) { (notification) in
+        // Sign the user out, optionally guide them to sign in again
+        }
     }
     
     @IBAction func logoutButtonPressAction(_ sender: UIButton) {
