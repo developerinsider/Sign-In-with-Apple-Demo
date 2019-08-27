@@ -106,8 +106,10 @@ struct KeychainItem {
         
         return query
     }
-    
-    //Mark - Demo App Helper
+}
+
+//Mark - Demo App Helper
+extension KeychainItem {
     static var bundleIdentifier: String {
         return Bundle.main.bundleIdentifier ?? "com.developerinsider.SignInWithAppleDemo"
     }
@@ -185,4 +187,3 @@ struct KeychainItem {
         }
     }
 }
-
