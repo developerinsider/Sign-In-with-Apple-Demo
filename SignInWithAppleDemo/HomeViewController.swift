@@ -31,10 +31,12 @@ class HomeViewController: UIViewController {
     
     static func Push() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
-            else { return }
-        guard let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
-            else { return }
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else {
+            return
+        }
+        guard let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else {
+            return
+        }
         navigationController.pushViewController(viewController, animated: true)
     }
     
@@ -52,8 +54,9 @@ class HomeViewController: UIViewController {
         KeychainItem.currentUserLastName = nil
         KeychainItem.currentUserEmail = nil
         
-        guard let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
-            else { return }
+        guard let navigationController = view.window?.rootViewController as? UINavigationController else {
+            return    
+        }
         navigationController.popViewController(animated: true)
     }
 }

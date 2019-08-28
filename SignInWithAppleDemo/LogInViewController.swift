@@ -25,10 +25,19 @@ class LogInViewController: UIViewController {
     }
     
     private func setupLoginProviderView() {
-        let authorizationButton = ASAuthorizationAppleIDButton()
+        // Set button style based on device theme
+        let isDarkTheme = view.traitCollection.userInterfaceStyle == .dark
+        let style: ASAuthorizationAppleIDButton.Style = isDarkTheme ? .white : .black
+        
+        // Create and Setup Apple ID Authorization Button
+        let authorizationButton = ASAuthorizationAppleIDButton(type: .default, style: style)
         authorizationButton.addTarget(self, action: #selector(handleLogInWithAppleIDButtonPress), for: .touchUpInside)
-        let heightConstraint = authorizationButton.heightAnchor.constraint(equalToConstant: 50)
+        
+        // Add Height Constraint
+        let heightConstraint = authorizationButton.heightAnchor.constraint(equalToConstant: 44)
         authorizationButton.addConstraint(heightConstraint)
+        
+        //Add Apple ID authorization button into the stack view
         loginProviderStackView.addArrangedSubview(authorizationButton)
     }
     
@@ -57,7 +66,9 @@ class LogInViewController: UIViewController {
 
 extension LogInViewController : ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
